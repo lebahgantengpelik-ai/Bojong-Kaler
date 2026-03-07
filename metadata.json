@@ -1,0 +1,7 @@
+{
+  "name": "Weduplas Bandung",
+  "description": "Platform interaktif edukasi dan pemetaan bank sampah plastik di Kota Bandung dengan dukungan AI.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
