@@ -2,10 +2,17 @@
 import { GoogleGenAI } from "@google/genai";
 
 export class GeminiService {
-  private ai: GoogleGenAI;
+  private ai: GoogleGenAI | null = null;
 
-  constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  private getAI(): GoogleGenAI {
+    if (!this.ai) {
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error("Gemini API key is not configured. Please set GEMINI_API_KEY in your environment.");
+      }
+      this.ai = new GoogleGenAI({ apiKey });
+    }
+    return this.ai;
   }
 
   private getLanguageInstruction(): string {
@@ -14,8 +21,9 @@ export class GeminiService {
 
   async analyzeWaste(itemDescription: string): Promise<string> {
     try {
+      const ai = this.getAI();
       const langInst = this.getLanguageInstruction();
-      const response = await this.ai.models.generateContent({
+      const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: `Analisis jenis sampah plastik berikut: "${itemDescription}". 
         ${langInst}
@@ -28,14 +36,15 @@ export class GeminiService {
       return response.text || "Maaf, saya tidak dapat menganalisis item tersebut saat ini.";
     } catch (error) {
       console.error("Gemini Error:", error);
-      return "Terjadi kesalahan saat menghubungi asisten AI.";
+      return "Terjadi kesalahan saat menghubungi asisten AI. Pastikan API Key sudah terkonfigurasi.";
     }
   }
 
   async getChatResponse(message: string): Promise<string> {
     try {
+      const ai = this.getAI();
       const langInst = this.getLanguageInstruction();
-      const chat = this.ai.chats.create({
+      const chat = ai.chats.create({
         model: 'gemini-3-flash-preview',
         config: {
           systemInstruction: `Anda adalah asisten virtual 'Kang Resik' dari Kota Bandung. 
@@ -48,13 +57,15 @@ export class GeminiService {
       const response = await chat.sendMessage({ message });
       return response.text || "Maaf, saya kurang mengerti.";
     } catch (error) {
-      return "Maaf, ada gangguan dalam sistem.";
+      console.error("Chat Error:", error);
+      return "Maaf, ada gangguan dalam sistem AI.";
     }
   }
 
   async findWasteBanks(query: string, location?: { lat: number, lng: number }): Promise<{ text: string, chunks: any[] }> {
     try {
-      const response = await this.ai.models.generateContent({
+      const ai = this.getAI();
+      const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: `Cari lokasi bank sampah atau tempat daur ulang plastik di Bandung berdasarkan kueri: "${query}". Berikan informasi nama, alamat, dan jam operasional jika tersedia.`,
         config: {
@@ -73,7 +84,7 @@ export class GeminiService {
       };
     } catch (error) {
       console.error("Gemini Maps Error:", error);
-      return { text: "Gagal mencari lokasi.", chunks: [] };
+      return { text: "Gagal mencari lokasi. Pastikan fitur AI sudah aktif.", chunks: [] };
     }
   }
 }

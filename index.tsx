@@ -5,6 +5,15 @@ import App from './App';
 
 // Global error handler for debugging production issues
 window.onerror = function(message, source, lineno, colno, error) {
+  showError(message as string, error);
+  return false;
+};
+
+window.onunhandledrejection = function(event) {
+  showError(`Unhandled Promise Rejection: ${event.reason}`, event.reason);
+};
+
+function showError(message: string, error: any) {
   const rootElement = document.getElementById('root');
   if (rootElement) {
     rootElement.innerHTML = `
@@ -20,8 +29,7 @@ window.onerror = function(message, source, lineno, colno, error) {
       </div>
     `;
   }
-  return false;
-};
+}
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
