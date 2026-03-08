@@ -8,7 +8,7 @@ import {
   PieChart, 
   MapPinned, 
   Gamepad2, 
-  MessageSquareText,
+  Lightbulb,
   Heart,
   Menu,
   X
@@ -73,15 +73,15 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
               <div className="h-6 w-px bg-slate-200 mx-4"></div>
               
               <button 
-                onClick={() => handleTabChange(Tab.ASSISTANT)}
+                onClick={() => handleTabChange(Tab.FUNFACT)}
                 className={`flex items-center space-x-2 px-6 py-2.5 rounded-full font-bold transition-all shadow-md ${
-                  activeTab === Tab.ASSISTANT
+                  activeTab === Tab.FUNFACT
                     ? 'bg-emerald-700 text-white'
                     : 'bg-emerald-600 text-white hover:bg-emerald-700 hover:shadow-emerald-200'
                 }`}
               >
-                <MessageSquareText className="w-4 h-4" />
-                <span>Tanya Kang Resik</span>
+                <Lightbulb className="w-4 h-4" />
+                <span>Fakta Menarik</span>
               </button>
             </nav>
 
@@ -123,15 +123,15 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
                 ))}
                 <div className="pt-4">
                   <button
-                    onClick={() => handleTabChange(Tab.ASSISTANT)}
+                    onClick={() => handleTabChange(Tab.FUNFACT)}
                     className={`w-full flex items-center justify-center space-x-2 px-4 py-4 rounded-2xl font-bold transition-all shadow-lg ${
-                      activeTab === Tab.ASSISTANT
+                      activeTab === Tab.FUNFACT
                         ? 'bg-emerald-700 text-white'
                         : 'bg-emerald-600 text-white'
                     }`}
                   >
-                    <MessageSquareText className="w-5 h-5" />
-                    <span>Tanya Kang Resik</span>
+                    <Lightbulb className="w-5 h-5" />
+                    <span>Fakta Menarik</span>
                   </button>
                 </div>
               </div>

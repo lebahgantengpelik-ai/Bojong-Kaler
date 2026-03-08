@@ -36,7 +36,7 @@ export enum Tab {
   EDUCATION = 'education',
   DATA = 'data',
   MAPS = 'maps',
-  ASSISTANT = 'assistant',
+  FUNFACT = 'funfact',
   GAME = 'game'
 }
 

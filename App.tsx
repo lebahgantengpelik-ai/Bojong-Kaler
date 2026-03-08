@@ -4,7 +4,7 @@ import Layout from './components/Layout';
 import Education from './components/Education';
 import DataDashboard from './components/DataDashboard';
 import WasteBankMap from './components/WasteBankMap';
-import Assistant from './components/Assistant';
+import FunFact from './components/FunFact';
 import WasteGame from './components/WasteGame';
 import { Tab } from './types';
 
@@ -19,8 +19,8 @@ const App: React.FC = () => {
         return <DataDashboard />;
       case Tab.MAPS:
         return <WasteBankMap />;
-      case Tab.ASSISTANT:
-        return <Assistant />;
+      case Tab.FUNFACT:
+        return <FunFact />;
       case Tab.GAME:
         return <WasteGame />;
       default:

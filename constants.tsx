@@ -207,3 +207,21 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     explanation: "HDPE adalah High-Density Polyethylene, plastik yang kuat dan sering digunakan untuk botol susu dan deterjen."
   }
 ];
+
+export const PLASTIC_FUN_FACTS = [
+  "Setiap menit, satu juta botol plastik dibeli di seluruh dunia.",
+  "Plastik membutuhkan waktu hingga 1.000 tahun untuk terurai di tempat pembuangan sampah.",
+  "Lebih dari 8 juta ton plastik berakhir di lautan setiap tahunnya.",
+  "Jika tren saat ini berlanjut, pada tahun 2050 akan ada lebih banyak plastik daripada ikan di lautan (berdasarkan berat).",
+  "Hanya sekitar 9% dari seluruh plastik yang pernah dibuat telah didaur ulang.",
+  "Mendaur ulang satu botol plastik dapat menghemat energi yang cukup untuk menyalakan bola lampu 60 watt selama enam jam.",
+  "Rata-rata orang mengonsumsi sekitar 5 gram plastik setiap minggu melalui air dan makanan—setara dengan berat sebuah kartu kredit.",
+  "Kantong plastik pertama kali diperkenalkan di supermarket pada tahun 1977.",
+  "Botol plastik pertama kali dipasarkan secara komersial pada tahun 1947, tetapi tetap sangat mahal sampai awal 1960-an.",
+  "Indonesia adalah penyumbang sampah plastik ke laut terbesar kedua di dunia setelah China.",
+  "Produksi plastik global telah meningkat dari 1,5 juta ton pada tahun 1950 menjadi lebih dari 350 juta ton saat ini.",
+  "Sekitar 40% dari plastik yang diproduksi setiap tahun adalah plastik sekali pakai yang digunakan untuk kemasan.",
+  "Penyu sering salah mengira kantong plastik sebagai ubur-ubur, yang merupakan makanan utama mereka.",
+  "Burung laut sering mati karena perutnya penuh dengan potongan plastik yang tidak bisa dicerna.",
+  "Mikroplastik telah ditemukan di tempat-tempat paling terpencil di bumi, dari puncak Gunung Everest hingga dasar Palung Mariana."
+];
