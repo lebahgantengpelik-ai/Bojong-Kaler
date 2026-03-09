@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PLASTIC_TYPES } from '../constants';
 import { PlasticType } from '../types';
 import { CheckCircle2, Recycle, Trash2, Droplets, Wind, ArrowRight, Info, Package, Container, Skull, Waves, CloudRain, TreeDeciduous } from 'lucide-react';
+import { PlasticIllustration, ItemIllustration } from './PlasticIllustrations';
 
 const PlasticCard: React.FC<{ type: PlasticType; index: number }> = ({ type, index }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -57,9 +58,11 @@ const PlasticCard: React.FC<{ type: PlasticType; index: number }> = ({ type, ind
             </div>
           </div>
 
-          <div className="relative z-10">
-            <h3 className="text-2xl font-black text-slate-800 mb-4 leading-tight">{type.name}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed line-clamp-4">{type.description}</p>
+          <div className="relative z-10 flex flex-col items-center justify-center py-4">
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Contoh Sampah</span>
+            <PlasticIllustration code={type.code} color={type.color} className="w-32 h-32 mb-2" />
+            <h3 className="text-2xl font-black text-slate-800 mb-2 leading-tight text-center">{type.name}</h3>
+            <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 text-center">{type.description}</p>
           </div>
 
           <div className="flex items-center text-emerald-600 font-bold text-xs uppercase tracking-widest gap-2 group-hover:gap-4 transition-all">
@@ -76,25 +79,29 @@ const PlasticCard: React.FC<{ type: PlasticType; index: number }> = ({ type, ind
           <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/criss-cross.png')]"></div>
           
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <motion.div 
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="p-2 bg-white/10 rounded-xl"
-              >
-                <Info size={20} className="text-emerald-400" />
-              </motion.div>
-              <h4 className="font-black uppercase tracking-widest text-xs text-emerald-400">Contoh Produk</h4>
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <motion.div 
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="p-2 bg-white/10 rounded-xl"
+                >
+                  <Info size={20} className="text-emerald-400" />
+                </motion.div>
+                <h4 className="font-black uppercase tracking-widest text-xs text-emerald-400">Contoh Produk</h4>
+              </div>
+              <PlasticIllustration code={type.code} color={type.color} className="w-12 h-12 opacity-50" />
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {type.examples.map((ex, idx) => (
-                <motion.span 
+                <motion.div 
                   whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
                   key={idx} 
-                  className="bg-white/10 text-white px-4 py-2 rounded-xl text-xs font-bold border border-white/10 cursor-default"
+                  className="bg-white/5 p-2 rounded-xl border border-white/10 flex flex-col items-center gap-1.5"
                 >
-                  {ex}
-                </motion.span>
+                  <ItemIllustration type={ex.iconType} color={type.color} className="w-8 h-8" />
+                  <span className="text-[8px] font-bold text-white text-center leading-tight">{ex.name}</span>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -16,12 +16,17 @@ export interface WasteStat {
   plasticPercentage: number;
 }
 
+export interface PlasticExample {
+  name: string;
+  iconType: 'bottle' | 'can' | 'bag' | 'box' | 'tube' | 'cup' | 'jug' | 'wrap' | 'pipe' | 'toy';
+}
+
 export interface PlasticType {
   code: number;
   name: string;
   description: string;
   recyclability: string;
-  examples: string[];
+  examples: PlasticExample[];
   color: string;
 }
 

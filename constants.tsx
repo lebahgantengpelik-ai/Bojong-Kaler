@@ -110,7 +110,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'PET (Polyethylene Terephthalate)',
     description: 'Biasa digunakan untuk botol air mineral, botol jus, dan wadah makanan.',
     recyclability: 'Tinggi',
-    examples: ['Botol Air', 'Botol Soda', 'Wadah Selai'],
+    examples: [
+      { name: 'Botol Air', iconType: 'bottle' },
+      { name: 'Botol Soda', iconType: 'bottle' },
+      { name: 'Wadah Selai', iconType: 'box' }
+    ],
     color: '#1d4ed8'
   },
   {
@@ -118,7 +122,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'HDPE (High-Density Polyethylene)',
     description: 'Plastik yang lebih kaku, digunakan untuk botol deterjen, susu, dan shampoo.',
     recyclability: 'Tinggi',
-    examples: ['Botol Susu', 'Botol Deterjen', 'Mainan'],
+    examples: [
+      { name: 'Botol Susu', iconType: 'jug' },
+      { name: 'Botol Deterjen', iconType: 'jug' },
+      { name: 'Mainan', iconType: 'toy' }
+    ],
     color: '#1e40af'
   },
   {
@@ -126,7 +134,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'PVC (Polyvinyl Chloride)',
     description: 'Digunakan untuk pipa air, ubin, dan kabel listrik.',
     recyclability: 'Rendah/Sulit',
-    examples: ['Pipa PVC', 'Kabel', 'Tirai Kamar Mandi'],
+    examples: [
+      { name: 'Pipa PVC', iconType: 'pipe' },
+      { name: 'Kabel', iconType: 'tube' },
+      { name: 'Tirai Kamar Mandi', iconType: 'wrap' }
+    ],
     color: '#9333ea'
   },
   {
@@ -134,7 +146,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'LDPE (Low-Density Polyethylene)',
     description: 'Plastik fleksibel untuk kantong belanja dan pembungkus makanan.',
     recyclability: 'Sedang',
-    examples: ['Kantong Kresek', 'Cling Wrap', 'Botol Remas'],
+    examples: [
+      { name: 'Kantong Kresek', iconType: 'bag' },
+      { name: 'Cling Wrap', iconType: 'wrap' },
+      { name: 'Botol Remas', iconType: 'bottle' }
+    ],
     color: '#059669'
   },
   {
@@ -142,7 +158,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'PP (Polypropylene)',
     description: 'Tahan panas, digunakan untuk tutup botol, sedotan, dan wadah yogurt.',
     recyclability: 'Tinggi',
-    examples: ['Tutup Botol', 'Wadah Makanan', 'Sedotan'],
+    examples: [
+      { name: 'Tutup Botol', iconType: 'box' },
+      { name: 'Wadah Makanan', iconType: 'box' },
+      { name: 'Sedotan', iconType: 'tube' }
+    ],
     color: '#d97706'
   },
   {
@@ -150,7 +170,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'PS (Polystyrene)',
     description: 'Biasa dikenal sebagai styrofoam. Digunakan untuk wadah makanan sekali pakai, gelas kopi, dan karton telur.',
     recyclability: 'Rendah',
-    examples: ['Styrofoam', 'Gelas Plastik', 'Sendok Plastik'],
+    examples: [
+      { name: 'Styrofoam', iconType: 'box' },
+      { name: 'Gelas Plastik', iconType: 'cup' },
+      { name: 'Sendok Plastik', iconType: 'toy' }
+    ],
     color: '#dc2626'
   },
   {
@@ -158,7 +182,11 @@ export const PLASTIC_TYPES: PlasticType[] = [
     name: 'OTHER (Lainnya)',
     description: 'Kategori untuk plastik jenis lain seperti polikarbonat atau campuran plastik lainnya.',
     recyclability: 'Sangat Rendah',
-    examples: ['Botol Bayi', 'Galon Air', 'Casing HP'],
+    examples: [
+      { name: 'Botol Bayi', iconType: 'bottle' },
+      { name: 'Galon Air', iconType: 'jug' },
+      { name: 'Casing HP', iconType: 'box' }
+    ],
     color: '#4b5563'
   }
 ];
