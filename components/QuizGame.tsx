@@ -1,27 +1,40 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { QUIZ_QUESTIONS } from '../constants';
 import { Trophy, CheckCircle2, XCircle, ArrowRight, RefreshCcw, HelpCircle } from 'lucide-react';
+import { QuizQuestion } from '../types';
 
 const QuizGame: React.FC = () => {
+  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
 
+  // Function to shuffle and pick questions
+  const getRandomQuestions = () => {
+    const shuffled = [...QUIZ_QUESTIONS].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 5); // Pick 5 random questions
+  };
+
+  // Initialize questions on mount
+  useEffect(() => {
+    setQuestions(getRandomQuestions());
+  }, []);
+
   const handleAnswer = (index: number) => {
-    if (isAnswered) return;
+    if (isAnswered || questions.length === 0) return;
     setSelectedOption(index);
     setIsAnswered(true);
-    if (index === QUIZ_QUESTIONS[currentQuestion].correctAnswer) {
+    if (index === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
   };
 
   const nextQuestion = () => {
-    if (currentQuestion + 1 < QUIZ_QUESTIONS.length) {
+    if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
       setIsAnswered(false);
@@ -31,6 +44,7 @@ const QuizGame: React.FC = () => {
   };
 
   const resetGame = () => {
+    setQuestions(getRandomQuestions());
     setCurrentQuestion(0);
     setScore(0);
     setShowResult(false);
@@ -38,7 +52,9 @@ const QuizGame: React.FC = () => {
     setIsAnswered(false);
   };
 
-  const question = QUIZ_QUESTIONS[currentQuestion];
+  if (questions.length === 0) return null;
+
+  const question = questions[currentQuestion];
 
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -56,7 +72,7 @@ const QuizGame: React.FC = () => {
               <motion.div 
                 className="h-full bg-emerald-500"
                 initial={{ width: 0 }}
-                animate={{ width: `${((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100}%` }}
+                animate={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
               />
             </div>
 
@@ -67,7 +83,7 @@ const QuizGame: React.FC = () => {
                     <HelpCircle size={24} />
                   </div>
                   <span className="text-sm font-black text-slate-400 uppercase tracking-widest">
-                    Pertanyaan {currentQuestion + 1} / {QUIZ_QUESTIONS.length}
+                    Pertanyaan {currentQuestion + 1} / {questions.length}
                   </span>
                 </div>
                 <div className="bg-slate-900 text-white px-4 py-1 rounded-full text-xs font-bold">
@@ -130,7 +146,7 @@ const QuizGame: React.FC = () => {
                     onClick={nextQuestion}
                     className="w-full bg-slate-900 hover:bg-slate-800 text-white py-5 rounded-3xl font-black text-xl flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 shadow-xl"
                   >
-                    {currentQuestion + 1 === QUIZ_QUESTIONS.length ? 'Lihat Hasil' : 'Pertanyaan Berikutnya'}
+                    {currentQuestion + 1 === questions.length ? 'Lihat Hasil' : 'Pertanyaan Berikutnya'}
                     <ArrowRight size={24} />
                   </button>
                 </motion.div>
@@ -152,12 +168,12 @@ const QuizGame: React.FC = () => {
             <p className="text-slate-500 mb-8 font-medium">Kamu menjawab benar:</p>
             
             <div className="text-7xl font-black text-emerald-600 mb-4 tracking-tighter">
-              {score} / {QUIZ_QUESTIONS.length}
+              {score} / {questions.length}
             </div>
 
             <p className="text-slate-400 font-bold uppercase tracking-widest mb-12">
-              {score === QUIZ_QUESTIONS.length ? 'Luar Biasa! Kamu Ahli Plastik!' : 
-               score >= QUIZ_QUESTIONS.length / 2 ? 'Bagus! Pengetahuanmu Cukup Baik.' : 
+              {score === questions.length ? 'Luar Biasa! Kamu Ahli Plastik!' : 
+               score >= questions.length / 2 ? 'Bagus! Pengetahuanmu Cukup Baik.' : 
                'Ayo Belajar Lagi di Menu Edukasi!'}
             </p>
 

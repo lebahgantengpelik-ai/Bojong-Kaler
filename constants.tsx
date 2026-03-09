@@ -205,6 +205,54 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ["High-Density Polyethylene", "Heavy-Duty Plastic Element", "High-Definition Plastic Epoxy", "Heat-Durable Polyethylene"],
     correctAnswer: 0,
     explanation: "HDPE adalah High-Density Polyethylene, plastik yang kuat dan sering digunakan untuk botol susu dan deterjen."
+  },
+  {
+    question: "Negara manakah yang menjadi penyumbang sampah plastik ke laut terbesar di dunia?",
+    options: ["Indonesia", "Amerika Serikat", "China", "India"],
+    correctAnswer: 2,
+    explanation: "Berdasarkan berbagai studi, China merupakan penyumbang sampah plastik ke lautan terbesar, diikuti oleh Indonesia."
+  },
+  {
+    question: "Apa yang dimaksud dengan mikroplastik?",
+    options: ["Plastik berukuran raksasa", "Potongan plastik berukuran kurang dari 5mm", "Plastik yang bisa dimakan", "Plastik yang berasal dari tumbuhan"],
+    correctAnswer: 1,
+    explanation: "Mikroplastik adalah potongan plastik yang sangat kecil, biasanya berukuran kurang dari 5 milimeter, yang sering mencemari lingkungan."
+  },
+  {
+    question: "Plastik nomor 4 (LDPE) biasanya ditemukan pada benda apa?",
+    options: ["Botol deterjen", "Kantong kresek/belanja", "Pipa air", "Casing handphone"],
+    correctAnswer: 1,
+    explanation: "LDPE (Low-Density Polyethylene) adalah plastik fleksibel yang umum digunakan untuk kantong belanja dan pembungkus makanan."
+  },
+  {
+    question: "Manakah dari perilaku berikut yang paling membantu mengurangi sampah plastik?",
+    options: ["Membakar sampah plastik", "Menggunakan tas belanja kain", "Membuang plastik ke sungai", "Mengubur plastik di tanah"],
+    correctAnswer: 1,
+    explanation: "Menggunakan tas belanja kain (reusable bag) secara signifikan mengurangi penggunaan kantong plastik sekali pakai."
+  },
+  {
+    question: "Apa bahaya utama membakar sampah plastik secara terbuka?",
+    options: ["Menghasilkan oksigen", "Melepaskan gas beracun seperti dioksin", "Mempercepat pertumbuhan pohon", "Membuat tanah lebih subur"],
+    correctAnswer: 1,
+    explanation: "Membakar plastik melepaskan bahan kimia berbahaya seperti dioksin dan furan yang dapat menyebabkan kanker dan masalah pernapasan."
+  },
+  {
+    question: "Jenis plastik apa yang sering digunakan untuk sedotan plastik?",
+    options: ["PET (1)", "PP (5)", "PVC (3)", "HDPE (2)"],
+    correctAnswer: 1,
+    explanation: "Sedotan plastik umumnya terbuat dari Polypropylene (PP) karena sifatnya yang fleksibel dan tahan panas."
+  },
+  {
+    question: "Apa arti dari simbol segitiga panah pada kemasan plastik?",
+    options: ["Tanda plastik mahal", "Kode identifikasi resin/daur ulang", "Tanda plastik beracun", "Tanda plastik buatan luar negeri"],
+    correctAnswer: 1,
+    explanation: "Simbol segitiga tersebut adalah kode identifikasi resin yang membantu proses pemilahan saat daur ulang."
+  },
+  {
+    question: "Berapa banyak plastik yang diperkirakan berakhir di lautan setiap tahunnya?",
+    options: ["1 juta ton", "8 juta ton", "100 ribu ton", "50 juta ton"],
+    correctAnswer: 1,
+    explanation: "Diperkirakan lebih dari 8 juta ton plastik berakhir di lautan kita setiap tahunnya, mengancam kehidupan laut."
   }
 ];
 
