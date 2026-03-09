@@ -187,6 +187,36 @@ const DataDashboard: React.FC = () => {
             </div>
          </div>
       </div>
+
+      {/* Data Sources */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="mt-12 pt-8 border-t border-slate-100"
+      >
+        <h4 className="text-sm font-black text-slate-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+          <Info size={16} />
+          Sumber Data & Referensi
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <p className="text-xs font-bold text-slate-500 mb-1">SIPSN KLHK</p>
+            <p className="text-sm text-slate-600 font-medium">Sistem Informasi Pengelolaan Sampah Nasional - Kementerian Lingkungan Hidup dan Kehutanan RI.</p>
+          </div>
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <p className="text-xs font-bold text-slate-500 mb-1">DLH Kota Bandung</p>
+            <p className="text-sm text-slate-600 font-medium">Dinas Lingkungan Hidup Kota Bandung - Laporan Tahunan Pengelolaan Persampahan.</p>
+          </div>
+          <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+            <p className="text-xs font-bold text-slate-500 mb-1">Kang Pisman</p>
+            <p className="text-sm text-slate-600 font-medium">Gerakan Kurangi, Pisahkan, dan Manfaatkan Sampah - Inisiatif Pemerintah Kota Bandung.</p>
+          </div>
+        </div>
+        <p className="mt-6 text-[10px] text-slate-400 italic leading-relaxed">
+          *Data yang ditampilkan merupakan kombinasi data historis SIPSN (2022-2023) dan proyeksi pertumbuhan volume sampah berdasarkan tren urbanisasi Kota Bandung. Persentase plastik didasarkan pada rata-rata komposisi sampah perkotaan di Indonesia.
+        </p>
+      </motion.div>
     </div>
   );
 };

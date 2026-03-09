@@ -384,6 +384,27 @@ const Education: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Data Sources Footer */}
+      <div className="mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
+            <Info size={12} />
+            Referensi Materi & Statistik
+          </h4>
+          <p className="text-[10px] text-slate-400 italic max-w-2xl">
+            Materi edukasi disusun berdasarkan panduan SIPSN KLHK, Laporan Tahunan DLH Kota Bandung, dan standar identifikasi resin internasional (ASTM D7611). Data volume sampah merupakan angka rata-rata harian Kota Bandung periode 2023-2024.
+          </p>
+        </div>
+        <div className="flex gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Bandung_City_Logo.svg" alt="DLH Bandung" className="h-8 opacity-30 grayscale" />
+          <div className="h-8 w-px bg-slate-200"></div>
+          <div className="flex flex-col justify-center">
+            <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Dinas Lingkungan Hidup</p>
+            <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Kota Bandung</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
