@@ -58,16 +58,9 @@ const PlasticCard: React.FC<{ type: PlasticType; index: number }> = ({ type, ind
             </div>
           </div>
 
-          <div className="relative z-10 flex flex-col items-center justify-center py-4">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Contoh Sampah</span>
-            <PlasticIllustration code={type.code} color={type.color} className="w-32 h-32 mb-2" />
-            <h3 className="text-2xl font-black text-slate-800 mb-2 leading-tight text-center">{type.name}</h3>
-            <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 text-center">{type.description}</p>
-          </div>
-
-          <div className="flex items-center text-emerald-600 font-bold text-xs uppercase tracking-widest gap-2 group-hover:gap-4 transition-all">
-            <span>Klik untuk detail</span>
-            <ArrowRight size={14} />
+          <div className="relative z-10 flex-grow flex flex-col items-center justify-center">
+            <PlasticIllustration code={type.code} color={type.color} className="w-48 h-48 mb-4" />
+            <h3 className="text-3xl font-black text-slate-800 tracking-tight text-center">{type.name}</h3>
           </div>
         </div>
 
@@ -216,7 +209,6 @@ const Education: React.FC = () => {
             <Recycle className="text-emerald-500 mr-3 md:mr-4 w-6 h-6 md:w-8 md:h-8" />
             7 Kode Plastik
           </h3>
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Klik kartu untuk detail</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
